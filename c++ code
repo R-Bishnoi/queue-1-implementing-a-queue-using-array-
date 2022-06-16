@@ -1,0 +1,99 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define N 5
+
+int st[N];
+int front=-1,rear=-1;
+
+
+
+
+// enqueue function
+void enqueue(int x){
+ 
+if(front==-1 && rear==-1){
+    front++;
+    rear++;
+     st[rear]=x;
+}  
+
+else if(rear==N-1){
+    cout<<"stack overflow"<<endl;
+}
+   
+ 
+else{
+    rear++;
+    st[rear]=x;
+}  
+   
+}
+
+
+
+//dequeue function
+void dequeue(){
+    
+  if(front==-1 && rear==-1){
+      cout<<"stack underflow"<<endl;
+  }  
+    
+  else if(front==rear){
+      front=-1;
+      rear=-1;
+  }
+  
+  else{
+      front++;
+  }
+    
+    
+}
+
+
+
+//peek function 
+void peek(){
+ 
+ if(front==-1 && rear==-1)cout<<"stack is empty"<<endl;
+ 
+ else{
+     cout<<"peak element is : "<<st[front]<<endl;
+ }
+
+}
+
+
+//display function
+void display(){
+    
+ if(front==-1 && rear==-1)cout<<"stack is empty "<<endl;
+ 
+ else{
+     while(front<=rear){
+         cout<<"display "<<st[front++]<<"\n";
+     }
+ }
+    
+}
+
+
+
+
+
+
+//main function
+int main(){
+  
+  enqueue(1);  
+  enqueue(2);  
+  enqueue(3);  
+  enqueue(4);
+  dequeue();
+  peek();
+  display();
+    
+    
+    return 0;
+}
